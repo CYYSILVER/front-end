@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document</title>
+    <style>
+        button{
+            width:200px;
+            padding:15px 30px;
+            font-size:16px;
+            background-color:rgb(76, 175, 80);
+            border:none;
+            color:white;
+            text-align: center;
+            outline:none;
+            cursor: pointer;
+        }
+
+        button span:after{
+            opacity:0;
+            content:">>";
+            position:absolute;
+            right:-20px;
+            transition:0.5s;
+        }
+        
+        button span{
+            display: inline-block;
+            position: relative;
+            transition:0.5s;
+            
+        }
+
+        button:hover span{
+            padding-right:25px;
+        }
+
+        button:hover span:after{
+            opacity: 1;
+            right:0px;
+        }
+    </style>
+</head>
+<body>
+    <button><span>hover</span></button>
+</body>
+</html>

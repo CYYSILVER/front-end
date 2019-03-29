@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1 id="test">test<h1>
+		
+	</body>
+</html>
+<script type="text/javascript">
+	var h1 = document.querySelector("#test");
+	var i = 0;
+	setInterval(function(){
+		// while(true)
+			h1.innerHTML = i++;
+	},20);
+	var newDoc = document.createElement("h1");
+	newDoc.innerHTML = "done";
+	document.querySelector("body").appendChild(newDoc);
+	
+	
+</script>

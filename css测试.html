@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style type="text/css">
+        li+li,
+        p+h1 {
+            color: red;
+        }
+
+        a:link {
+            color: aqua;
+
+        }
+
+        a:visited {
+            color: #00ff00;
+        }
+
+        a:hover {
+            color: #0000ff;
+            text-decoration: aliceblue overline;
+        }
+
+        a:active {
+            color: #ff0000;
+        }
+
+        input[type="text"]:focus {
+            color: red;
+            background-color: blue;
+            background-image: url(img/test.jpg);
+
+        }
+
+        q:lang(a) {
+            quotes: "<"">";
+        }
+
+        h1[lang=en] {
+            color: red;
+        }
+
+        p[word|="c"] {
+            color: red;
+        }
+
+        #background {
+            background-image: url(img/Snipaste_2019-03-26_00-56-17.png);
+            background-repeat: no-repeat;
+            background-size: auto;
+            background-position: 50% 50%;
+            padding: 10px;
+            background-clip: padding-box;
+
+
+            /* border:10px solid red; */
+        }
+
+        p.indent {
+            text-indent: 2em;
+            text-align: center;
+        }
+
+        p.justify {
+            text-align: justify;
+            word-spacing: 1em;
+            letter-spacing: 1em;
+        }
+
+        p.transform {
+            text-transform: capitalize;
+
+
+        }
+
+        p.whitespace {
+            white-space: pre;
+            direction: ltr;
+
+        }
+
+        p.font {
+            font-variant: small-caps;
+            font-weight: lighter;
+            border:20px inset111111111111111111;
+        }
+
+        span{
+            margin:30px;
+            border:1px solid red;
+            line-height: 50px;
+            width:200px;
+        }
+
+
+        h1.center{
+            text-align:center;
+            padding:10px;
+            border:1px double #c3d0df;
+           
+            bottom:10px;
+        }
+
+        div.marginCenter{
+          
+     
+            margin:auto;
+        }
+    </style>
+</head>
+
+<body>
+    <p word="c-a a">相邻兄弟选择器测试</p>
+    <h1>相邻兄弟选择器测试</h1>
+    <div>
+        <ol>
+            <li>list item 1</li>
+            <li>list item 2</li>
+            <li>list item 3</li>
+        </ol>
+        <ul>
+            <li>list item 1</li>
+            <li>list item 2</li>
+            <li>list item 3</li>
+        </ul>
+    </div>
+
+    <h1>css伪类</h1>
+    <a href="http://www.biiil.com" target="_blank" rel="noopener noreferrer">
+        this is a link
+    </a>
+    <p>在CSS定义中,a:hover必须位于a:link和a:visited之后才能生效</p>
+    <p>在CSS定义中,a:active必须位于a:hover之后才能生效</p>
+
+
+    <form>
+        <span>First name:</span><input type="text" name="FirstName" id="" />
+        <span>Last name:</span><input type="text" name="LastName" id="" />
+    </form>
+
+
+    <h2>lang伪类</h2>
+    <p>文字<q lang="a">段落中的引用的文字</q>文字</p>
+    <p lang="en">Ceci est un paragraphe.</p>
+
+    <h1>ID选择器</h1>
+    #id
+
+    <h1>类选择器</h1>
+    .class
+
+    <h1 lang="en">属性选择器</h1>
+    <input type="button" value="button" />
+
+    <h1 id="background">背景图片</h1>
+
+    <p class="indent">测试缩进奥奥</p>
+
+    <!-- 不赞成使用center对其 -->
+    <center>
+        <p>hello</p>
+        <a href="http://baidu.com">baidu</a>
+    </center>
+
+    <p class="justify">这里有很长的一段文本:
+        最后一个水平对齐属性是 justify。
+
+        在两端对齐文本中，文本行的左右两端都放在父元素的内边界上。然后，调整单词和字母间的间隔，使各行的长度恰好相等。您也许已经注意到了，两端对齐文本在打印领域很常见。
+
+        需要注意的是，要由用户代理（而不是 CSS）来确定两端对齐文本如何拉伸，以填满父元素左右边界之间的空间。如需了解详情，请参阅 CSS text-align 属性参考页。
+    </p>
+
+    <p class="transform">hello world! I'm testing paragraph's transform</p>
+    <p class="whitespace">测试文本 的white space样式，
+        PRE属性IE浏览器7并不支持
+    </p>
+    <div style="width: 200px;">
+        <p>This paragragh is contained within a DIV that has a width of 200 pixels.</p>
+    </div>
+    <p class="font">字体测试 TEST text test</p>
+    <div style="width: 100%;">
+        <p style="padding:10%;background-color:rgb(123, 193, 255);">This paragragh is contained within a DIV that has a
+            width of 200 pixels.</p>
+    </div>
+
+    <a href=""><img src="img/test.jpg" alt="none" width="5%"/></a>
+    
+
+    <p style="margin:30px">外边框合并</p>
+    <p style="margin:30px">第二段</p>
+    <div style="margin:50px"></div>
+    <span>test</span>
+    <span>test</span>
+
+    <h1 class="center">使用margin auto对齐</h1>
+    <div class="marginCenter"><p>HelloWorld</p></div>
+</body>
+
+</html>

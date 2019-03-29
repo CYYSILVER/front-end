@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+
+        div.group{
+            display:table;
+            width:100%;
+            
+        
+        }
+        div.polaroid {
+            /* float:left; */
+
+            /* margin:; */
+            box-sizing: border-box;
+            width: 40%;
+            margin:25px 5%;
+            
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            display:inline-block;
+            transition-duration: 0.3s;
+            transition:width 0.2s;
+        }
+
+        div.polaroid:hover{
+            box-shadow: 0 5px 8px 0 rgba(0,0,0,0.4), 0 7px 20px 0 rgba(0,0,0,0.39);
+            cursor: pointer;
+            opacity: 0.7;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        div.text {
+            padding: 25px 15px;
+            text-align: center;
+        }
+
+        @media (max-width:1000px){
+            div.polaroid{
+                width:90%;
+            }
+        }
+
+
+        .imgModal{
+            /* border:1px solid red; */
+            width:100%;
+            height: 100%;
+            position: fixed;
+            top:0px;
+            left:0px;
+            padding-top:100px;
+            display:none;
+            
+            z-index: 1;
+            background-color:rgba(0,0,0,0.9);
+            
+        }
+
+        span.close{
+            position: fixed;
+            right:30px;
+            top:15px;
+            z-index: 1;
+            color:white;
+            font-size:40px;
+            font-weight: bold;
+            color: #bebebe;
+            cursor: pointer;
+            transition:0.2s;
+            text-decoration: none;
+        }
+
+        span.close:hover, :focus{
+            color: white;
+        }
+
+        img.modalContent{
+            display:block;
+            margin:auto;
+            width:80%;
+            max-width:1000px;
+            animation:imgAni 0.6s;
+            transition:0.3s;
+            
+        }
+
+        .modalDes{
+            margin:auto;
+            display:block;
+            width:80%;
+            max-width:700px;
+            text-align: center;
+            color:#ccc;
+            padding:10px 0;
+            height:150px;
+            animation:imgAni 0.6s;
+            
+            
+        }
+
+        @keyframes imgAni{
+            from {
+                transform:scale(0);
+            }
+            to {
+                transform:scale(1);
+            }
+        }
+
+        @media (max-width:700px){
+            img.modalContent{
+
+            width:100%;
+      
+            
+        }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="group">
+        <div class="polaroid" id="p1">
+            <img src="img/lights600x400.jpg" alt="Northern Lights in Norway" />
+            <div class="text">Northern Lights in Norway</div>
+        </div>
+        <div class="polaroid" id="p2">
+            <img src="img/rock600x400.jpg" alt="The Troll's tongue in Hardanger, Norway" />
+            <div class="text">The Troll's tongue in Hardanger, Norway</div>
+        </div>
+    </div>
+
+    <!-- modal -->
+    <div class="imgModal">
+        <span class="close">×</span>
+        <img class="modalContent"/>
+        <div class="modalDes">caption</div>
+    </div>
+</body>
+
+</html>
+<script>
+    var imgs = document.getElementsByClassName("polaroid");
+    var modal = document.getElementsByClassName("imgModal")[0];
+    var modalIMG = document.querySelector(".modalContent");
+    var caption = document.querySelector(".modalDes");
+    for(var i=0; i <imgs.length; i++){
+        var img = imgs[i].firstElementChild;
+        img.onclick = function(){
+            // console.debug("test");
+            modal.style.display = "block";
+            modalIMG.src = this.src;
+            modalIMG.alt = this.alt;
+            caption.innerHTML = this.alt;
+        }
+    }
+
+    var close = document.querySelector(".close");
+    close.addEventListener("click",function(){
+        modal.style.display = "none";
+    })
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document</title>
+    <style>
+    div.border{
+        width:20%;
+        height:50px;
+        /* border-image:url(img/border.png) 30 30 round; */
+        border:15px solid transparent;
+        text-align: center;
+        padding-top:25px;
+        /* vertical-align: middle; */
+        border-image:url(img/border.png) 15 fill repeat;
+        
+    }
+
+    div.bg{
+        width:50%;
+        background-image:url(img/border.png);
+        height:300px;
+        background-repeat: round;
+
+    }
+
+    div.gradient{
+        background:linear-gradient(to right,red, blue);
+        width:50%;
+        height:200px;
+    }
+    </style>
+</head>
+<body>
+    <div class="border">here are some text</div>
+    <br/>
+    <div class="border">here are some text</div>
+    <img src="img/border.png" alt=""/>
+    <div class="bg"></div>
+    <div class="gradient"></div>
+</body>
+</html>

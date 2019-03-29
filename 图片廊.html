@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        div.imgs:after {
+            display: table;
+            content: "";
+            clear: both;
+        }
+
+        div.responsive{
+            padding:5px;
+            float:left;
+            width: 25%;
+            
+        }
+
+        img {
+            width: 100%;
+            opacity:0.4;
+            filter:alpha(opacity=40);
+        }
+
+
+        .img {
+           
+            border: 1px solid black;
+
+        }
+
+        @media only screen and (max-width:1250px) {
+            div.responsive {
+                width: 50%;
+            }
+        }
+
+        @media only screen and (max-width:900px) {
+            div.responsive {
+                width: 100%;
+            }
+        }
+
+        div.description {
+            text-align: center;
+            padding: 15px;
+            -webkit-user-modify: read-write;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="imgs">
+        <div class="responsive">
+            <div class="img">
+                <a href="http://static.runoob.com/images/demo/demo1.jpg"><img
+                        src="http://static.runoob.com/images/demo/demo1.jpg" alt="demo" /></a>
+                <div class="description">Here to add description</div>
+            </div>
+        </div>
+        <div class="responsive">
+            <div class="img">
+                <a href="http://static.runoob.com/images/demo/demo1.jpg"><img
+                        src="http://static.runoob.com/images/demo/demo1.jpg" alt="demo" /></a>
+                <div class="description">Here to add description</div>
+            </div>
+        </div>
+        <div class="responsive">
+            <div class="img">
+                <a href="http://static.runoob.com/images/demo/demo1.jpg"><img
+                        src="http://static.runoob.com/images/demo/demo1.jpg" alt="demo" /></a>
+                <div class="description">Here to add description</div>
+            </div>
+        </div>
+        <div class="responsive">
+            <div class="img">
+                <a href="http://static.runoob.com/images/demo/demo1.jpg"><img
+                        src="http://static.runoob.com/images/demo/demo1.jpg" alt="demo" /></a>
+                <div class="description">Here to add description</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
