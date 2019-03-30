@@ -13,5 +13,6 @@ function show(x) {
     console.log(typeof new Number(10));  //object
 
     console.log();
+    console.debug();
 }
 show();
