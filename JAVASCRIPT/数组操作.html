@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document</title>
+    <style>
+
+    
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+</body>
+</html>
+<script type="text/javascript">
+//添加删除
+var arr = [1,2,3,4,5,6];
+
+arr.push(4);
+arr.pop();
+arr.shift();
+arr.unshift(5);
+
+//排序
+arr.sort(function(a,b){
+    return a-b;
+})
+ 
+//操作
+console.log(arr.concat(1,[2,3]));
+console.log(arr);
+
+arr.splice(0,1,4,5);
+console.log(arr);
+
+console.log(arr.join("\\"));
+console.log(arr.slice(3,4));
+
+console.log(arr.reverse());
+console.log(arr);
+
+//迭代
+console.log(arr.map(function(item, index, array){
+    return item+10;
+}));
+
+console.log(arr.filter(function(item, index, array){
+    return item>2;
+}));
+
+console.log(arr.every(function(item, index, array){
+    return item>=0;
+
+}));
+
+console.log(arr.some(function(item, index, array){
+    return item>=5;
+}));
+
+
+console.log(arr.forEach(function(item){
+    console.log(item);
+}));
+
+console.log(arr.reduce(function(prev, cur, index, array){
+    return cur+prev;
+}));
+
+console.log(arr.indexOf(4));
+</script>
