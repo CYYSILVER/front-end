@@ -12,7 +12,7 @@ function show(x) {
     console.log(typeof null);  //object
     console.log(typeof new Number(10));  //object
 
+    console.debug('hello')
 
-    
 }
 show();
