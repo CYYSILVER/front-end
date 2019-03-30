@@ -5,15 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
+    <style>
+
+    
+    </style>
 </head>
 <body>
-    
+    <div></div>
+    <div></div>
 </body>
 </html>
 <script type="text/javascript">
-function sayScript(){
-    alert("<\/script>");
-
+ 
+function bubbleSort(arr){
+    for(var i=0; i<arr.length; i++){
+        for(var j=0; j<arr.length-1-i;j++){
+            if(arr[j] < arr[j+1]){
+                var tmp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = tmp;
+            }
+        }
+    }
 }
-sayScript();
+var a = [1,4,8,2,3,6];
+bubbleSort(a);
+console.log(a);
 </script>
