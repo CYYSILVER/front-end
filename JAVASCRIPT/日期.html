@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    var timeNow = new Date();
+    document.write(timeNow+"</br>");
+    document.write(timeNow.getTimezoneOffset()+"</br>");
+
+    var timeMy = new Date(2018,6,1,12,25,30,999);
+    document.write(timeMy+"</br>");
+    document.write(timeMy.getMilliseconds()+"</br>");
+
+    var timeUTC = new Date(Date.UTC(2018,6,1,12,25,30,999));
+    document.write(timeUTC+"</br>");
+
+
+</script>
