@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>正则表达式测试</h1>
+</body>
+
+</html>
+<script>
+    var exp = /\d\d:\d\d:\d\d/;
+    var str = "22:32:49";
+    document.write(exp + "</br>");
+    document.write(str + "</br>");
+    document.write(exp.test(str) + "</br>");
+
+
+    var exp = /[\S\s]*.cat/;
+    var str = "dfjout.cat";
+    document.write(exp + "</br>");
+    document.write(str + "</br>");
+    document.write(exp.test(str) + "</br>");
+
+
+
+    pattern = /.cat/g;
+    text= "Tomcat Simicat ,Gocat";
+ 
+    for(var matches = pattern.exec(text);matches; matches = pattern.exec(text)){
+        console.log(matches[0]);
+    }
+</script>

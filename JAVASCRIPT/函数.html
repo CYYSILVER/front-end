@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    var str = new String("hello world");
+    console.log(str);
+    console.log(str.slice(0,str.length));
+    console.log(str.substr(6,7));
+    console.log(str.substring(6,7));
+    console.log(Array.prototype.slice.call(str,0,str.length));
+    console.log(Array.prototype.every.call(str,function(item){
+        return typeof item == "string";
+    }))
+
+
+    var characterA = "A";
+    var characterZ = String.fromCharCode(characterA.charCodeAt()+25);
+    console.log(characterZ);
+  
+
+ 
+</script>
