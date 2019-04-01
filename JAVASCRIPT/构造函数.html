@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+</body>
+</html>
+
+<script>
+//模仿jquery
+(function(){
+    
+
+    
+
+    window.$ = JQuery = function(selector){
+
+
+        return new JQuery.fn.init(selector);
+    }
+
+    
+    JQuery.fn = JQuery.prototype;
+    JQuery.prototype.init = function(selector){
+        this.selected = [document.querySelector(selector)];
+        // return this;
+    }
+    JQuery.fn.init.prototype = JQuery.fn
+
+
+    JQuery.fn.onclick = function(fun){
+        this.selected.forEach(element => {
+            element.addEventListener("click",fun);
+        });
+    }
+
+    
+    var enable = true;
+    JQuery.fn.toggle = function(){
+        enable = !enable;
+        this.selected.forEach(element => {
+            element.style.opacity = enable?1:0;
+            console.log(element.style);
+        });
+    }
+})()
+
+
+$("h1").toggle();
+
+setTimeout(function(){
+    $("h1").toggle();
+},4000);
+
+</script>
