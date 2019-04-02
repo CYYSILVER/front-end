@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+function Person(name, age){
+    var o = new Object();
+    o.name = name;
+    o.age = age;
+    o.sayName = function(){
+        console.log(this.name);
+    }
+    return o;
+}
+var p1 = new Person("chen",20);
+var p2 = new Person("yin",12);
+p1.sayName();
+console.log(p1.sayName === p2.sayName);
+
+//创建额外方法
+
+function SpecialArray(){
+    var values = new Array();
+    Array.prototype.push.apply(values, arguments);
+    values.toPipedString = function(){
+        return this.join("|");
+    }
+    return values;
+}
+
+var colors = new SpecialArray("red", "blue", "green");
+console.log(colors);
+console.log(colors.toPipedString());
+
+</script>

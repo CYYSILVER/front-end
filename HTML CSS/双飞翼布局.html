@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document</title>
+    <style>
+ 
+    .holygrail div{
+        border:1px solid saddlebrown;
+    }
+
+    .middle{
+        /* box-sizing:border-box; */
+        /* padding:0 100px; */
+        min-width:100px;
+     
+    }
+
+    .middle div{
+        float:left;
+        min-height:500px;
+        box-sizing: border-box;
+        /* position:relative; */
+    }
+    .middle:after{
+        content:"";
+        display: block;
+        clear: both;
+    }
+    #center{
+        width:100%;
+        background-color:aquamarine;
+    }
+
+    div.content{
+        background-color:green;
+        margin-left:100px;
+        margin-right:100px;
+        /* word-break:break-all; */
+        word-wrap: break-word;
+       
+        border:none;
+        
+    }
+    #right{
+        width:100px;
+        margin-left:-100px;
+        background-color:burlywood;
+        /* left:100px; */
+    }
+    #left{
+        margin-left:-100%;
+        width:100px;
+        background-color:aqua;
+        /* left:-100px; */
+    }
+    
+
+  
+    </style>
+</head>
+<body>
+    <div class="holygrail">
+        <div class="header"><h1>Header</h1></div>
+        <div class="middle">
+            <div id="center"><div class="content">dafad文字文字文字文字sfadsfsaddfdddddddddddddddddddddddddddddddddddddddd文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字ddddddd</div></div>
+            <div id="left">文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字</div>
+            
+            <div id="right">文字</div>
+        </div>
+        <div class="footer"><h1>Footer</h1></div>
+
+    </div>
+
+    <div>
+            dafad文字文字文字文字sfadsfsaddfdddddddddddddddddddddddddddddddddddddddd文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字ddddddd
+    </div>
+</body>
+</html>

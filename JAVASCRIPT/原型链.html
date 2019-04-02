@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+function Person(){
+    // console.log(caller);
+    document.write();
+}
+var keys = Object.getOwnPropertyNames(Person);
+console.log(keys);
+var a = new Person();
+console.log(Person.__proto__ === Object.prototype);
+console.log(Object.__proto__ === Function.prototype);
+console.log(a instanceof Object);
+console.log(Object instanceof Function);
+console.log(Function instanceof Object);
+console.log(a instanceof Function);
+console.log(Person instanceof Object);
+console.log(Person instanceof Function);
+console.log(a);
+console.log(Person);
+console.log(Person.prototype);
+console.log(Object.prototype);
+console.log(Function.__proto__);
+
+
+
+function Super(){
+    this.age = 20;
+}
+
+Super.prototype.hello = function(){
+    console.log(this.age);
+}
+
+
+function Sub(){
+
+}
+Sub.prototype = new Super();
+
+var sub = new Sub();
+sub.hello();
+console.log(sub.age);
+var sub2 = new Sub();
+//这里添加了新的变量
+sub.age = 30;
+console.log(sub);
+console.log(sub2.age);
+sub2.hello();
+
+console.log(sub instanceof Object);
+console.log(sub instanceof Super);
+console.log(sub instanceof Sub);
+
+</script>

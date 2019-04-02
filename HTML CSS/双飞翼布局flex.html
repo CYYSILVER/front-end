@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document</title>
+    <style>
+    .holygrail{
+        display:flex;
+        flex-flow:row wrap;
+        height:100%;
+        width:100%;
+        border:1px solid red;
+        align-content: stretch;
+        /* box-sizing:border-box; */
+    }
+    .holygrail *{
+        border:1px solid rgb(19, 27, 139);
+        flex:1 100%;
+        box-sizing:border-box;
+    }
+    .holygrail h1{
+        border:none;
+    }
+    .header{
+        text-align:center;
+        height:15%;
+    }
+    
+    .middle{
+        display:flex;
+        height:70%;
+    }
+
+    #left,#right{
+        flex:1 20%;
+    }
+    #center {
+        flex:5 80%;
+        min-height:500px;
+    }
+    .footer{
+        height:15%;
+        text-align:center;
+    }
+
+  
+    </style>
+</head>
+<body>
+    <div class="holygrail">
+        <div class="header"><h1>Header</h1></div>
+        <div class="middle">
+            <div id="left">文字</div>
+            <div id="center">文文</div>
+            <div id="right">文字</div>
+        </div>
+        <div class="footer"><h1>Footer</h1></div>
+
+    </div>
+</body>
+</html>

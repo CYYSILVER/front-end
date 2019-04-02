@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+function Person(){
+
+}
+
+Person.prototype.name = "Chen";
+Person.prototype.age = 20;
+Person.prototype.job = "Software Engineer";
+Person.prototype.sayName = function(){
+    document.write(this.name);
+}
+
+
+
+var keys = Object.keys(Person.prototype);
+console.log(keys);
+
+var p1 = new Person();
+p1.name = "rob";
+p1.age = 31;
+var p1keys = Object.keys(p1);
+console.log(p1keys);
+
+
+var allkeys = Object.getOwnPropertyNames(Person.prototype);
+console.log(allkeys);
+
+var allp1keys = Object.getOwnPropertyNames(p1);
+console.log(allp1keys);
+
+
+for(var prop in Person.prototype){
+    console.log(prop);
+}
+
+for(var keys = Object.getOwnPropertyNames(Person.prototype), i=0 ;i<keys.length; i++){
+   console.log(keys[i]+":"+Person.prototype[keys[i]]);
+}
+</script>

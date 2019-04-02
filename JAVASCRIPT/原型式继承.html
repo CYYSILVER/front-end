@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    function object(o) {
+        function F() {};
+        F.prototype = o;
+        return new F();
+    }
+
+    var person = {
+        name: "Nicholas",
+        friends: ["Shelby", "Court", "Van"]
+    };
+
+    var anotherPerson = object(person);
+
+    anotherPerson.name = "Greg";
+    anotherPerson.friends.push("Rob");
+
+
+    var yetAnotherPerson = object(person);
+    yetAnotherPerson.name = "Linda";
+    yetAnotherPerson.friends.push("Barbie");
+
+    console.log(anotherPerson);
+    function createAnotherPerson(original){
+        var clone = object(original);
+        clone.sayHi = function(){
+            console.log("hi");
+        }
+        return clone;
+    }
+
+    var yetAnotherPerson = createAnotherPerson(person);
+    yetAnotherPerson.sayHi();
+    console.log(yetAnotherPerson);
+
+    var person = {
+        name: "Nicholas",
+        friends: ["Shelby", "Court", "Van"]
+    };
+
+    var anotherPerson = Object.create(person);
+    anotherPerson.name = "Greg";
+    anotherPerson.friends.push("Rob");
+    var yetAnotherPerson = Object.create(person);
+    yetAnotherPerson.name = "Linda";
+    yetAnotherPerson.friends.push("Barbie");
+
+    console.log(anotherPerson);
+</script>

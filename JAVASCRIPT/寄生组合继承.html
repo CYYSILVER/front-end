@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+
+function inheritPrototype(subType, superType){
+    function F(){};
+    F.prototype = superType.prototype;
+    var o = new F();
+    o.constructor = subType;
+    subType.prototype = o;
+    
+   
+}
+
+function SuperType(name){
+    this.name = name;
+    this.color = ["red", "blue", "green"];
+}
+
+SuperType.prototype.sayName = function(){
+    document.write(this.name);
+}
+
+function SubType(name, age){
+    SuperType.call(this, name);
+    this.age = age
+}
+inheritPrototype(SubType, SuperType);
+console.log(SubType.prototype);
+
+SubType.prototype.sayAge = function(){
+    document.write(this.age);
+}
+var sub1 = new SubType("chen",20);
+var sub2 = new SubType("yin",10);
+var superT = new SuperType("hello");
+sub2.sayAge();
+sub2.sayName();
+superT.sayName();
+
+console.log(sub1);
+</script>
