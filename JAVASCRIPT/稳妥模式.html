@@ -13,15 +13,43 @@
 
 <script>
 function Person(name, age){
+    var test = "aaa";
     var o = new Object();
     oJob = " softWare Engineering";
     o.sayName = function(){
+        test = "bbb";
         console.log(name+oJob);
+    }
+    o.get = function(){
+        console.log(test);
     }
     return o;
 }
 
 var p1 = Person("Chen", 20);
 p1.sayName();
+p1.get();
 
+var p2 = Person("Yin", 20);
+p2.get();
+
+
+
+function F(){
+    var i = 0;
+
+    return function F1(){
+        console.log(i++);
+    }
+
+}
+
+var fn = F();
+fn();
+fn();
+
+
+var fb = F();
+fb();
+fb();
 </script>
