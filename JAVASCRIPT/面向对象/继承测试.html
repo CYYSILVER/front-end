@@ -28,12 +28,15 @@ Teacher.prototype = new Person();
 function Student(name){
     this.name = name;
 }
-Student.prototype = new Person();
-
 var stu = new Student("aa");
-stu.say();
-stu = new Teacher("bb");
-stu.say();
+stu.__proto__ = Student.prototype;
+Student.prototype = new Person();
+console.log(stu);
+console.log(Student.prototype);
+console.log(stu instanceof Student);
+// stu.say();
+// stu = new Teacher("bb");
+// stu.say();
 
 
 </script>

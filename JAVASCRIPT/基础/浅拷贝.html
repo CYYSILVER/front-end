@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    function simpleClone(initalObj) {
+        var obj = {};
+        for ( var i in initalObj) {
+            obj[i] = initalObj[i];
+        }
+        return obj;
+    }
+     
+    var obj = {
+        a: "hello",
+        b:{
+            a: "world",
+            b: 21
+        },
+        c:["Bob", "Tom", "Jenny"],
+        d:function() {
+            alert("hello world");
+        }
+    };
+    var cloneObj = simpleClone(obj);
+     
+    console.log(cloneObj.a);
+    console.log(cloneObj.b);
+    console.log(cloneObj.c);
+    console.log(cloneObj.d);
+     
+    //更改原对象中的a,b,c,d，看看拷贝过来的对象是否变化
+    cloneObj.a = "changed";
+    cloneObj.b.a = "changed";
+    cloneObj.b.b = 25;
+    cloneObj.d.prototype.say = function(){
+        console.log("hello");
+    }
+   
+    console.log(obj.a);    //hello
+    console.log(obj.b);    //{a:"changed",b:25},事实上就是只有对象是拷贝的引用类型
+    console.log(obj.c === cloneObj.c);    //['Bob','Tom','Jenny']
+    console.log(obj.d === cloneObj.d);    //...alert("hello world")
+    console.log(obj.d.prototype);
+</script>
+

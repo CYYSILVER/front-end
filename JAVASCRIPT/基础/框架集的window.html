@@ -1,0 +1,18 @@
+<html>
+<head>
+    <title>Frameset Example</title>
+    <script>
+
+        console.log(window.frames);
+        console.log(window.frames.hasOwnProperty("parent"));
+        console.log(window.frames[0]);
+    </script>
+</head>
+<frameset rows="160,*">
+    <frame src="../HTML CSS/双飞翼布局.html" name="topFrame">
+        <frameset cols="50%,50%">
+            <frame src="../HTML CSS/双飞翼布局flex.html" name="leftFrame">
+                <frame src="../HTML CSS/图片廊.html" name="rightFrame">
+        </frameset>
+</frameset>
+</html>

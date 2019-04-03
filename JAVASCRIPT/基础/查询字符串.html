@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+function getQueryStringArgs(str){
+
+    var string = str.length>0? str.substring(1): "",
+
+    //保存对象
+        args = {},
+
+        items = string.length? string.split("&"):[],
+
+        item = null,
+        name = null,
+        value = null,
+
+        i=0,
+        len = items.length;
+
+    for (i=0;i<len;i++){
+        item = items[i].split("=");
+        name = decodeURIComponent(item[0]);
+        value = decodeURIComponent(item[1]);
+        
+        
+        if (name.length>0){
+             args[name] = value;
+
+        }
+    }
+
+    return args;
+
+}
+
+var o = getQueryStringArgs("?ie=UTF-8&wd=卧槽");
+
+console.log(o);
+</script>
