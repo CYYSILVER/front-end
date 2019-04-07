@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:math="http://www.w3.org/1999/Math/MathMl">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document</title>
+    <style>
+    div{
+        background-color:red;
+    }
+    </style>
+</head>
+<body>
+    <div>x3/X</div>
+    <form style="margin-top:500px" action="" method="get"><label for="username">账号</label><input type="text" id="username"/></form>
+</body>
+</html>
+
+<script>
+console.log(document.isDefaultNamespace("http://www.w3.org/1999/xhtml"))
+var div = document.getElementsByTagNameNS("http://www.w3.org/1999/xhtml","div")[0];
+console.log(div);
+div.insertAdjacentHTML("beforebegin","<p>helloworld</p>");
+div.insertAdjacentText("afterbegin","test");
+div.insertAdjacentElement("afterend",document.createElement("input"));
+
+var input = document.getElementsByTagName("input")[0];
+input.focus();
+console.log(document.activeElement);
+
+
+console.log(document.hasFocus());
+
+
+console.log(document.readyState);
+var a = setTimeout(function(){
+    console.log(document.readyState);
+},10);
+clearTimeout(a);
+
+
+console.log(document.compatMode);
+console.log(document.charset);
+console.log(document.defaultView);
+
+div.dataset.d = "hello";
+
+console.log(div.innerHTML);
+div.innerHTML = "<h1>Inner Html 属性</p>";
+div.parentElement.insertBefore(document.createElement("input"),div);
+console.log(document.forms[0]);
+document.forms[0].scrollIntoView();
+document.forms[0].lastElementChild.previousElementSibling.focus();
+document.body.normalize();
+console.log(document.documentMode);
+console.log(div.children.length);
+console.log(div.children[0].childNodes);
+console.log(document.body.childNodes.length);
+console.log(document.body.childNodes);
+console.log(document.body.children.length);
+console.log(document.body.childElementCount);
+console.log(document.documentElement.contains(document.body));
+console.log(document.childNodes);
+console.log(document.documentElement.compareDocumentPosition(document.body)&32);
+var svg = document.createElementNS("http://test","div");
+document.body.appendChild(svg);
+console.log(document.getElementsByTagName("div"));
+
+</script>

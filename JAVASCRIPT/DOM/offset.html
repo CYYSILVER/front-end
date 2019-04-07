@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+        body {
+            margin: 10px;
+            border: 10px solid red;
+
+        }
+
+        #d1 {
+            margin-top: 30px;
+            height: 200px;
+            border: 2px solid blue;
+            overflow: scroll;
+        }
+
+        #d2 {
+            margin: 20px;
+            height: 500px;
+            border: 5px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="d1">
+        <div id="d2"></div>
+    </div>
+</body>
+
+</html>
+<script>
+    var divs = document.getElementsByTagName("div");
+
+    console.log(divs[1].offsetLeft);
+    console.log(divs[0].offsetLeft);
+
+    console.log(divs[0].clientLeft);
+    console.log(divs[1].clientTop);
+    console.log(document.body.clientLeft);
+    console.log(divs[1].getBoundingClientRect());
+    console.log(divs[1].scrollHeight);
+    console.log(divs[1].scrollWidth);
+    console.log(divs[1].scrollLeft);
+    divs[1].scrollTop = 100;
+
+    var it = document.createNodeIterator(document.querySelector("body"));
+    while (true) {
+        var node = it.nextNode();
+        if (node == null) break;
+        console.log(node);
+    }
+
+    EventUtil = {
+        addEventListener: function (element, type, handler) {
+            if (element.addEventListener) {
+                element.addEventListener(type, handler);
+            } else if (element.attachEvent) {
+                element.attachEvent("on" + type, handler);
+            } else {
+                element["on" + type] = handler;
+            }
+        },
+        removeEventListener: function (element, type, handler) {
+            if (element.removeEventListener) {
+                element.removeEventListener(type, handler);
+            } else if (element.detachEvent) {
+                element.detachEvent("on" + type, handler);
+            } else {
+                element["on" + type] = null;
+            }
+        }
+    }
+
+    function clickHandler() {
+        if (confirm("你是猪吗")) {
+            EventUtil.removeEventListener(divs[1], "click", clickHandler);
+        }
+    }
+    EventUtil.addEventListener(divs[1], "click", clickHandler);
+</script>

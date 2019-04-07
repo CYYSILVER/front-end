@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <!--comment-->
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+</body>
+</html>
+<script>
+var div = document.getElementsByTagName("div")[0];
+div.appendChild(document.createTextNode('<p>fuck <strong>you</strong> !!!<\/p>'));
+var text = document.createTextNode("<strong>djfljgd</strong>");
+div.insertBefore(text,div.firstChild);
+div.appendChild(document.createTextNode('<p>fuck <strong>you</strong> !!!<\/p>'));
+div.normalize();
+console.log(div.childNodes[1].nodeValue);
+var comment = document.createComment("hello word");
+div.appendChild(comment);
+</script>
