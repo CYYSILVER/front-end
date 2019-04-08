@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+function TreeNode(x){
+    this.val= x;
+    this.left = null;
+    this.right=null;
+}
+
+function reConstructBinaryTree(pre, vin)
+{
+    // write code here
+    return reCon(pre, 0, pre.length, vin, 0, vin.length);
+    
+}
+
+function reCon(pre, pre_start, pre_end, vin, vin_start, vin_end){
+    if(pre_start >= pre_end || vin_start >= vin_end){
+        return null;
+    }
+    var root = new TreeNode(pre[pre_start]);
+    var i = vin_start;
+    while(i<vin_end){
+        if(pre[pre_start] === vin[i]){
+            break;
+        }
+        i++;
+    }
+    root.left = reCon(pre, pre_start+1, pre_start+i-vin_start+1, vin, vin_start, i);
+    root.right = reCon(pre, pre_start+i-vin_start+1, pre_end, vin, i+1, vin_end);
+    return root;
+    
+}
+reConstructBinaryTree([1,2,4,7,3,5,6,8], [4,7,2,1,5,3,8,6]);
+</script>

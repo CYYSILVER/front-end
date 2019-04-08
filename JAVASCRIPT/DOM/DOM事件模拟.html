@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="../../UniUtil.js"></script>
+    <style>
+        body>div {
+            position: relative;
+        }
+
+        .tooltip {
+            position: absolute;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            opacity:0;
+        }
+
+        .fadeout {
+            animation: fadeout 2s;
+        }
+
+        .fadein {
+            animation:fadein 2s;
+        }
+        @keyframes fadein{
+            0% {
+                opacity:0;
+            }
+            10% {
+                opacity:1;
+            }
+            100% {
+                opacity:1;
+            }
+        }
+
+        @keyframes fadeout {
+            from {
+                visibility: visible
+            }
+
+            to {
+                visibility: hidden;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="text" />
+        <div class="tooltip">请输入数字</div>
+        <button>test</button>
+    </div>
+</body>
+
+</html>
+
+<script>
+    var btn = document.getElementsByTagName("button")[0];
+    UniUtil.event.addHandler(btn, "click", function (event) {
+        console.log("mouse clicked");
+    })
+    var input = document.getElementsByTagName("input")[0];
+    var eventClick = document.createEvent("MouseEvents");
+    eventClick.initMouseEvent("click", true, true, document.defaultView);
+    btn.dispatchEvent(eventClick);
+
+    UniUtil.event.addHandler(input, "keypress", function (event) {
+        var pattern = /\d/;
+        if (!pattern.test(String.fromCharCode(event.charCode))) {
+            event.preventDefault();
+            var tooltip = document.querySelector(".tooltip");
+            tooltip.classList.add("fadein");
+        }
+    })
+
+    var eventKeypress = document.createEvent("KeyEvents");
+
+    eventKeypress.initKeyEvent("keypress", true, true, document.defaultView, false, false, false, false, 0, 65);
+
+    input.dispatchEvent(eventKeypress);
+</script>

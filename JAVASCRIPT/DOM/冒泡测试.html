@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="../../UniUtil.js"></script>
+    <style>
+    button {
+        background-color:saddlebrown;
+        outline:none;
+        border:none;
+        width:200px;
+        height:400px;
+        margin-top:250px;
+        margin-left:250px;
+    }
+    </style>
+</head>
+
+<body>
+    <button>测试</button>
+    <input type="text"/>
+</body>
+
+</html>
+<script>
+    var btn = document.getElementsByTagName("button")[0];
+    var input = document.getElementsByTagName("input")[0];
+    UniUtil.event.addHandler(btn, "click", function (e) {
+
+        console.log(UniUtil.event.calculatePage(e).pageX);
+        e = UniUtil.event.getEvent(e);
+        var keys = [];
+        if(e.ctrlKey){
+            keys.unshift("ctrl");
+        }
+        alert(keys);
+    })
+
+    UniUtil.event.addHandler(window, "unload", function () {
+        alert("推出");
+        confirm("确认退出");
+        console.log("dfdf");
+    })
+
+    // UniUtil.event.addHandler(window, "resize", function () {
+    //     alert("resized");
+    // })
+
+
+    UniUtil.event.addHandler(btn, "mouseover", function(event){
+        event = UniUtil.event.getEvent(event);
+        console.log(UniUtil.event.getRelatedTarget(event).nodeName);
+    })
+
+
+    UniUtil.event.addHandler(btn, "mousedown", function(event){
+        event = UniUtil.event.getEvent(event);
+        var button = UniUtil.event.getButton(event);
+        console.log(button);
+    })
+
+    // UniUtil.event.addHandler(btn, "mousemove", function(event){
+    //     event = UniUtil.event.getEvent(event);
+    //     console.log(event.detail);
+    //     console.log(event);
+    // })
+
+    // UniUtil.event.addHandler(btn, "mousewheel", function(event){
+    //     event = UniUtil.event.getEvent(event);
+    //     console.log(event);
+    //     console.log(event.detail);
+    //     console.log(UniUtil.event.getWheelDelta(event));
+    // })
+
+
+    UniUtil.event.addHandler(btn, "keypress", function(event){
+        event = UniUtil.event.getEvent(event);
+        console.log(UniUtil.event.getCharCode(event));
+    })
+
+
+    UniUtil.event.addHandler(input, "keypress", function(event){
+        event = UniUtil.event.getEvent(event);
+
+        console.log(UniUtil.event.getCharCode(event));
+    })
+
+    UniUtil.event.addHandler(window, "hashchange", function(event){
+        alert("current hash:" + location.hash);
+    })
+</script>
