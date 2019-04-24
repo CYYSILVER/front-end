@@ -1,0 +1,33 @@
+<html>
+<head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <ol>
+            <li v-for="d in $data"> {{d}}</li>
+        </ol>
+    </div>
+
+    <script>
+        let data = {
+            message: 'hello vue',
+            obj:{
+                message: 'hello vue'
+            }
+            
+        }
+        var app = new Vue({
+            el: '#app',
+            data: data
+        });
+
+        console.log(app.obj === data.obj)
+        
+    </script>
+</body>
+
+</html>

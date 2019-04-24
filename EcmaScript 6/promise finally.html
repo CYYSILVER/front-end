@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+// Promise.prototype.final = function (callback) {
+//   let P = this.constructor;
+//   return this.then(
+//     value  => P.resolve(callback()).then(() => value),
+//     reason => P.resolve(callback()).then(() => { throw reason })
+//   );
+// };
+
+// var promise = new Promise( function(resolve, reject) {
+//     resolve("hello");
+// }).then(function(result) {
+//     throw "errrr";
+// }).then(function(result){
+//     console.log(result);
+// },function(error){
+//     return Promise.resolve(function(){
+//         console.log("helloss");
+//     }()).then(()=>{console.log("errrrrrrr")
+//     throw error})
+// }).then(function(){
+//     console.log("1");
+// }, function(error){
+//     console.log("hello"+error);
+// })
+
+
+var p1 = new Promise((resolve, reject)=>{
+
+    setTimeout(()=>resolve("正确"),2000);
+    
+})
+
+var p2 = new Promise((resolve, reject)=>{
+    
+    setTimeout(()=>reject("错误"),100);
+})
+
+
+
+function promiseAll(promises){
+    return new Promise(function(resolve,reject) {
+    //promises必须是一个数组
+        if(!(promises instanceof Array)) {
+            throw new TypeError("promises must be an Array");
+        }
+        var len = promises.length,
+            resolvedCount = 0,
+            resolvedArray = new Array(len);
+        for(var i = 0;i < len ;i++) {
+            
+                Promise.resolve(promises[i])
+                    .then(value => {
+                        resolvedCount++;
+                        resolvedArray[i] = value;
+                        if(resolvedCount == len) {
+                            return resolve(resolvedArray);
+                        }
+                    },re => {
+                        return reject(re)
+                    })
+                    .then((result)=>{
+                        console.log(result+"here");
+                    })
+                    .catch(re => {
+                        console.log(re);
+                    })              
+            
+        }
+    })
+}
+promiseAll([p1, p2]).then((result)=>{
+    console.log(result);
+}, (error)=>{
+    console.log(error);
+})
+
+
+new Promise(function(resolve, reject){
+    reject("rejected");
+}).catch((error)=>{
+    console.log("error catched");
+})
+</script>

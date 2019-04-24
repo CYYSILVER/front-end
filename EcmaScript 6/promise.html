@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+const getJSON = function(url) {
+  const promise = new Promise(function(resolve, reject){
+    const handler = function() {
+      if (this.readyState !== 4) {
+        return;
+      }
+      if (this.status === 200) {
+        resolve(this.response);
+        console.log("aa");
+        reject(new Error(this.statusText));
+      } else {
+       
+      }
+    };
+    const client = new XMLHttpRequest();
+    client.open("GET", url);
+    client.onreadystatechange = handler;
+    client.responseType = "json";
+    client.setRequestHeader("Accept", "application/json");
+    client.send();
+
+  });
+
+  return promise;
+};
+
+getJSON("posts.json").then(function(json) {
+  console.log('Contents: ' + json);
+  return "hello";
+}, function(error){
+    console.log(erro);
+}).then(function(ss){
+    console.log(ss);
+})
+
+
+
+const p1 = new Promise((resolve)=>{
+  setTimeout(()=>{
+    resolve("success1");
+  },5000)
+})
+
+const p3 = new Promise((resolve)=>{
+  setTimeout(()=>{
+    resolve("success3");
+  },1000)
+})
+
+const p2 = new Promise((res)=>{
+  p1.then(res);
+  p3.then(res);
+ 
+}).then((success)=>{
+  return "hello";
+})
+
+function race(entries) {
+  /*jshint validthis:true */
+  var Constructor = Promise; // this 是调用 race 的 Promise 构造器函数。
+
+  if (!Array.isArray(entries)) {
+    return new Constructor(function (_, reject) {
+      return reject(new TypeError('You must pass an array to race.'));
+    });
+  } else {
+    return new Constructor(function (resolve, reject) {
+      var length = entries.length;
+      for (var i = 0; i < length; i++) {
+        Promise.resolve(entries[i]).then(resolve, reject);
+      }
+    });
+  }
+}
+
+race([p1, p2, p3, "immediate"]).then((result)=>{
+  console.log(result);
+});
+
+function all(entries){
+  return new Promise(function (resolve, reject){
+    var results = [];
+    var length = entries.length;
+    for (var i=0; i < length; i++){
+      Promise.resolve(entries[i]).then((result)=>{
+        results.push(result);
+        if(results.length === entries.length){
+          resolve(results);
+        }
+      })
+    }
+  })
+}
+
+all([p1,p2,p3, "immediate"]).then((result)=>{
+  console.log(result);
+})
+
+
+
+
+</script>

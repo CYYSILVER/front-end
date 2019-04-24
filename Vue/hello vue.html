@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+<div class="app">
+    <div id="app">
+        {{ xd() }}
+    </div>
+</div>
+
+    <script>
+        var app = new Vue({
+            el: 'div',
+            data: {
+                message: 'hello vue',
+                xd: function() {
+                    return this.message.split('').reverse().join('');
+                }
+            },
+            
+            methods:{
+                
+            }
+        });
+        app.message = "ww";
+        
+    </script>
+</body>
+
+</html>

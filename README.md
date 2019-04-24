@@ -1,5 +1,8 @@
 # front end
 
+# 2019/4/10
+jQuery 选择器、事件、动画、DOM操作
+
 # 2019/4/9
 EventUtil工具类
 jQuery入门、阅读jQuery源码
